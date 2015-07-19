@@ -6,7 +6,7 @@ import pngs_from_svg as pfs
 
 if __name__ == "__main__":
 
-    print ("Converting SVG files to PNG")
+    print("Converting SVG files to PNG")
 
     # input directory with svgs in subdirectories
     svgdir = 'svgs'
