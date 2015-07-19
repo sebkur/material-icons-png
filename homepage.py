@@ -69,6 +69,7 @@ if __name__ == "__main__":
 
     # get a list of all subdirectories (icon classes)
     dirs = os.listdir(svgdir)
+    dirs.sort()
 
     # create the main index file
     fmi = open(main_index, 'w')
