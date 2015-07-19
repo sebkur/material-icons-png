@@ -1,0 +1,9 @@
+.icongroup {
+	display: inline-block;
+}
+
+.icon {
+	margin: 5px 5px;
+	padding: 10px 10px;
+	background: url(pattern.png) repeat;
+}
