@@ -42,6 +42,7 @@ if __name__ == "__main__":
     # where to store the generated html page
     output = 'html'
     images_dir_name = 'images'
+    svgs_dir_name = 'svgs'
 
     # directory with svgs in subdirectories.
     # used to build the list of files presented
@@ -55,6 +56,7 @@ if __name__ == "__main__":
     # paths to index.html and images subdir
     main_index = os.path.join(output, 'index.html')
     images = os.path.join(output, images_dir_name)
+    svgs = os.path.join(output, svgs_dir_name)
 
     # create the output directory
     os.makedirs(output, exist_ok=True)
@@ -62,6 +64,10 @@ if __name__ == "__main__":
     # copy images if not present yet
     if not os.path.isdir(images):
         shutil.copytree(pngdir, images)
+
+    # copy svgs if not present yet
+    if not os.path.isdir(svgs):
+        shutil.copytree(svgdir, svgs)
 
     # copy resources
     for file in os.listdir(resources):
@@ -107,10 +113,13 @@ if __name__ == "__main__":
             if not "48px" in name:
                 continue
 
+            svg = os.path.join(svgs_dir_name, dirname, file)
+
             fi.write('<div class="icongroup">\n')
-            fi.write('<a href="' + name + '"/>\n')
             fi.write('<img class="icon" src="' + simple + '" />\n')
             fi.write('<img class="icon" src="' + opacity + '" />\n')
+            fi.write('<a href="' + svg + '"/>\n')
+            fi.write('<img class="button" src="download.png" />\n')
             fi.write('</a>\n')
             fi.write('</div>\n')
 
