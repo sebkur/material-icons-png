@@ -91,6 +91,7 @@ if __name__ == "__main__":
 
         # iterate contained svgs
         files = os.listdir(svg_subdir)
+        files.sort()
         for file in files:
             name, extension = os.path.splitext(file)
             f = os.path.join(images_dir_name, dirname, 'drawable-xhdpi')
